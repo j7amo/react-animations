@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import { Transition } from 'react-transition-group';
+import { Transition } from 'react-transition-group'; // we need this value to set the amount of time between state changes
 import Modal from './components/Modal/Modal';
 import Backdrop from './components/Backdrop/Backdrop';
 import List from './components/List/List'; // we need this value to set the amount of time between state changes
@@ -105,16 +105,7 @@ class App extends Component {
             />
           )}
         </Transition>
-        <Transition
-          in={isModalShown}
-          timeout={duration}
-          mountOnEnter
-          unmountOnExit
-        >
-          {(state) => (
-            <Modal showState={state} onClose={this.modalCloseHandler} />
-          )}
-        </Transition>
+        <Modal isShown={isModalShown} onClose={this.modalCloseHandler} />
         {isModalShown && (
           <Backdrop isShown={isModalShown} onClick={this.modalCloseHandler} />
         )}
