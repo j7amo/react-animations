@@ -1,14 +1,26 @@
 import React from 'react';
+import * as PropTypes from 'prop-types';
 
 import './Modal.css';
 
-const modal = (props) => (
-  <div className="Modal">
-    <h1>A Modal</h1>
-    <button className="Button" onClick={props.closed} type="button">
-      Dismiss
-    </button>
-  </div>
-);
+function Modal({ showState, onClose }) {
+  const classes = `Modal ${
+    showState === 'exiting' ? 'ModalClose' : 'ModalOpen'
+  }`;
 
-export default modal;
+  return (
+    <div className={classes}>
+      <h1>A Modal</h1>
+      <button className="Button" onClick={onClose} type="button">
+        Dismiss
+      </button>
+    </div>
+  );
+}
+
+Modal.propTypes = {
+  showState: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
+};
+
+export default Modal;
