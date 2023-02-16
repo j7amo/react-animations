@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
 import './App.css';
-import { Transition } from 'react-transition-group'; // we need this value to set the amount of time between state changes
+import { Transition } from 'react-transition-group';
 import Modal from './components/Modal/Modal';
 import Backdrop from './components/Backdrop/Backdrop';
-import List from './components/List/List'; // we need this value to set the amount of time between state changes
+import List from './components/List/List';
 
 // we need this value to set the amount of time between state changes
 const duration = 500;
